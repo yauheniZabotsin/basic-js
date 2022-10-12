@@ -20,15 +20,18 @@ function getSeason(date) {
   if (Object.keys(date).length !== 0) {
     throw new Error('Invalid date!')
   }else{
-    const month = date.getMonth();
+    try {
+      const month = date.getMonth();
 
-    if(month === 0 || month === 1 || month === 11) return "winter"
-    if(month === 2 || month === 3 || month === 4) return "spring"
-    if(month === 5 || month === 6 || month === 7) return "summer"
-    if(month === 8 || month === 9 || month === 10) return "autumn"  
-  }
-
-  throw new Error("Invalid date!")    
+      if(month === 0 || month === 1 || month === 11) return "winter"
+      if(month === 2 || month === 3 || month === 4) return "spring"
+      if(month === 5 || month === 6 || month === 7) return "summer"
+      if(month === 8 || month === 9 || month === 10) return "autumn"  
+    }catch {
+      throw new Error("Invalid date!") 
+    }
+    
+  }  
   
 }
   
